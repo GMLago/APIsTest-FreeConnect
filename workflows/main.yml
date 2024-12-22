@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-
+      
 jobs:
   update-collection:
     runs-on: ubuntu-latest
