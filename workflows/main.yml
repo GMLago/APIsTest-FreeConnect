@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      
+
 jobs:
   update-collection:
     runs-on: ubuntu-latest
@@ -19,7 +19,7 @@ jobs:
 
       - name: Export Collection
         run: |
-          newman run "ruta/a/tu/collection.json" --environment "ruta/a/tu/environment.json" --output "collection.json"
+          newman run "postman/collection.json" --output "collection.json"
 
       - name: Commit and Push Changes
         run: |
@@ -28,3 +28,4 @@ jobs:
           git add collection.json
           git commit -m "Update Postman collection"
           git push
+
