@@ -19,7 +19,7 @@ jobs:
 
       - name: Export Collection
         run: |
-          newman run "postman/collection.json" --output "collection.json"
+          newman run "CP.postman_collection.json" --output "collection.json"
 
       - name: Commit and Push Changes
         run: |
