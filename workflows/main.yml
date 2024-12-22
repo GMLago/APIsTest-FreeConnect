@@ -1,0 +1,30 @@
+name: Update Postman Collection
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-collection:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Newman
+        run: |
+          npm install -g newman
+
+      - name: Export Collection
+        run: |
+          newman run "ruta/a/tu/collection.json" --environment "ruta/a/tu/environment.json" --output "collection.json"
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'actions@github.com'
+          git add collection.json
+          git commit -m "Update Postman collection"
+          git push
